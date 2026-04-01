@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html  th:replace="~{layout/masterLayout :: layout(~{::main})}" 
+xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<main role="main">
+	<div class="container mt-5">
+	<a th:href="@{/create-department}" class="btn btn-primary my-3">New Department</a>
+		<table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>DepartmentName</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="dep :${departments}">
+					<td th:text="${dep.id}"></td>
+					<td th:text="${dep.departmentName}"></td>
+					<td><a th:href="@{'/list-employees-by-department?id='+${dep.id}}"
+					class="btn btn-primary">Show Employees</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</main>
+</body>
+</html>

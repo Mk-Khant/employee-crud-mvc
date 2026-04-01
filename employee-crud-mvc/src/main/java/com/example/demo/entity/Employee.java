@@ -1,8 +1,5 @@
 package com.example.demo.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,20 +14,16 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Department {
+public class Employee {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String departmentName;
+	private String firstName;
+	private String lastName;
+	private String email;
+	private double salary;
 	
-	@OneToMany(mappedBy = "department")
-	private List<Employee> employees =
-			new ArrayList<>();
-	
-	public void addEmp(Employee employee) {
-		employee.setDepartment(this);
-		employees.add(employee);
-
-	}
-	
+	@ManyToOne
+	private Department department;
 }

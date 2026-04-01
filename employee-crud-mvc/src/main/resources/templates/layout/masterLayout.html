@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html th:fragment="layout(main)" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-md navbar-dark bg-success text-light">
+		<div class="container">
+			<a th:href="@{/}"  class="navbar-brand">Employees</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="navbar-nav ms-auto">
+				<li class="nav-item">
+				<a th:href="@{/list-departments}" class="nav-link">Department</a></li>
+				<li class="nav-item">
+				<a th:href="@{/list-employees}" class="nav-link">Employee</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div th:replace="${main}"></div>
+</body>
+</html>
